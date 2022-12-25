@@ -18,10 +18,13 @@ jobs:
           name: go-app
           path: app
   run-go-app:
+    needs: build-go-app 
     runs-on: ubuntu-latest
     steps:
       - name: Download built app
         uses: actions/download-artifact@v3
         with:
           name: go-app
+      - name: Runt the built app
+        run: ./app
       
