@@ -25,6 +25,10 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: go-app
-      - name: Runt the built app
+      - name: List files
+        run: ls ${{ github.workspace }}
+      - name: Add execute permission
+        run: chmod +x ./app
+      - name: Run the built app
         run: ./app
       
