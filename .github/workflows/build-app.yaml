@@ -12,6 +12,16 @@ jobs:
         run: go version
       - name: Build the Go App
         run: go build -o app
-      - name: Run the Go App
-        run: ./app
+      - name: Upload Go App
+        uses: actions/upload-artifact@v3
+        with:
+          name: go-app
+          path: app
+  run-go-app:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download built app
+        uses: actions/download-artifact@v3
+        with:
+          name: go-app
       
