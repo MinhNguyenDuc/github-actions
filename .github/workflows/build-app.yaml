@@ -1,0 +1,17 @@
+name: Build Go application
+run-name: Build Go application from github action
+on: [push]
+
+jobs:
+  build-go-app:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-go@v3
+      - name: Check Go Version
+        run: go version
+      - name: Build the Go App
+        run: go build -o app
+      - name: Run the Go App
+        run: ./app
+      
