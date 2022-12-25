@@ -1,6 +1,9 @@
 name: Build Go application
 run-name: Build Go application from github action
-on: [push]
+on:
+  push:
+    branches:
+      - "build"
 
 jobs:
   build-go-app:
